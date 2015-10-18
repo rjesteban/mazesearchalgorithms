@@ -21,14 +21,14 @@ public class AStarManhattan extends InformedSearchAlgo{
     }
 
     @Override
-    public void computeHeuristic(Vertex v) {
+    public void computeHeuristic(Node v) {
         v.setH( Math.abs(v.pos.x-endPoint.x)+
               Math.abs(v.pos.y-endPoint.y)
         );
     }
 
     @Override
-    public void computeCost(Vertex v) {
+    public void computeCost(Node v) {
         computeHeuristic(v);
         try{
             v.setG(v.getParent().getG() + 1);
@@ -41,10 +41,10 @@ public class AStarManhattan extends InformedSearchAlgo{
 
     @Override
     public void solve() {
-        PriorityQueue<Vertex> openList = new PriorityQueue<Vertex>(
-            new Comparator<Vertex>(){
+        PriorityQueue<Node> openList = new PriorityQueue<Node>(
+            new Comparator<Node>(){
                 @Override
-                public int compare(Vertex o2, Vertex o1){
+                public int compare(Node o2, Node o1){
                     double _o1 = o1.getF();
                     double _o2 = o2.getF();
                     if (_o1 > _o2) {
@@ -56,16 +56,16 @@ public class AStarManhattan extends InformedSearchAlgo{
                 }
             }
         );
-        ArrayList<Vertex> closedList = new ArrayList<Vertex>();
+        ArrayList<Node> closedList = new ArrayList<Node>();
         
-        Vertex start = new Vertex(startPoint,null,0);
+        Node start = new Node(startPoint,null,0);
         
         computeHeuristic(start);
         computeCost(start);
         openList.offer(start);
         
         
-        Vertex current = null;
+        Node current = null;
         
         while(!openList.isEmpty()){
             try{
@@ -87,7 +87,7 @@ public class AStarManhattan extends InformedSearchAlgo{
             
             addNeigbor(current);
             
-            for(Vertex _neighbor:current.neighbor){
+            for(Node _neighbor:current.neighbor){
                 if(!openList.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     computeHeuristic(_neighbor);

@@ -20,23 +20,23 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
     }
 
     @Override
-    public void computeHeuristic(Vertex v) {
+    public void computeHeuristic(Node v) {
         v.setH( Math.abs(v.pos.x-endPoint.x)+
               Math.abs(v.pos.y-endPoint.y)
         );
     }
     
     @Override
-    public void computeCost(Vertex v) {
+    public void computeCost(Node v) {
         v.f = v.g = 0;
     }
 
     @Override
     public void solve() {
-        PriorityQueue<Vertex> q = new PriorityQueue<Vertex>(
-            new Comparator<Vertex>(){
+        PriorityQueue<Node> q = new PriorityQueue<Node>(
+            new Comparator<Node>(){
                 @Override
-                public int compare(Vertex o2, Vertex o1){
+                public int compare(Node o2, Node o1){
                     double _o1 = o1.getH();
                     double _o2 = o2.getH();
                     if (_o1 > _o2) {
@@ -48,10 +48,10 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
                 }
             }
         );
-        Vertex start = new Vertex(startPoint,null,0);
+        Node start = new Node(startPoint,null,0);
         computeHeuristic(start);
         q.offer(start);
-        Vertex current = null;
+        Node current = null;
         while(!q.isEmpty()){
             
             try{
@@ -71,7 +71,7 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
             
             addNeigbor(current);
             
-            for(Vertex _neighbor:current.neighbor){
+            for(Node _neighbor:current.neighbor){
                 if(!q.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     computeHeuristic(_neighbor);

@@ -12,17 +12,17 @@ import java.util.ArrayList;
  *
  * @author rjesteban
  */
-public class Vertex {
+public class Node {
     Point pos;
-    Vertex parent;
-    ArrayList<Vertex> neighbor;
+    Node parent;
+    ArrayList<Node> neighbor;
     Integer depth;
     
     public double f;
     public double g;
     public double h;
     
-    public Vertex(Point _pos, Vertex _parent,int _depth){
+    public Node(Point _pos, Node _parent,int _depth){
         pos = _pos;
         parent = _parent;
         depth = _depth;
@@ -45,11 +45,11 @@ public class Vertex {
         return g;
     }
     
-    public Vertex getParent(){
+    public Node getParent(){
         return parent;
     }
     
-    public void setParent(Vertex _parent){
+    public void setParent(Node _parent){
         parent = _parent;
     }
     

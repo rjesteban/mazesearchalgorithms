@@ -19,7 +19,7 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
     }
 
     @Override
-    public void computeHeuristic(Vertex v) {
+    public void computeHeuristic(Node v) {
         v.setH ( Math.sqrt(
             Math.pow(v.pos.x-endPoint.x,2)
                 +
@@ -29,7 +29,7 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
         
     }
     
-    public double computetheHeuristic(Vertex v) {
+    public double computetheHeuristic(Node v) {
         return Math.sqrt(
             Math.pow(v.pos.x-endPoint.x,2)
                 +
@@ -38,16 +38,16 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
     }
 
     @Override
-    public void computeCost(Vertex v) {
+    public void computeCost(Node v) {
         v.f = v.g = 0;
     }
 
     @Override
     public void solve() {
-        PriorityQueue<Vertex> q = new PriorityQueue<Vertex>(
-            new Comparator<Vertex>(){
+        PriorityQueue<Node> q = new PriorityQueue<Node>(
+            new Comparator<Node>(){
                 @Override
-                public int compare(Vertex o1, Vertex o2){
+                public int compare(Node o1, Node o2){
                     
                     double _o1 = o1.getH();
                     double _o2 = o2.getH();
@@ -60,10 +60,10 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
                 }
             }
         );
-        Vertex start = new Vertex(startPoint,null,0);
+        Node start = new Node(startPoint,null,0);
         computeHeuristic(start);
         q.offer(start);
-        Vertex current = null;
+        Node current = null;
         while(!q.isEmpty()){
             try{
                 if(!current.pos.equals(endPoint)){
@@ -82,7 +82,7 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
             
             addNeigbor(current);
             
-            for(Vertex _neighbor:current.neighbor){
+            for(Node _neighbor:current.neighbor){
                 if(!q.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     computeHeuristic(_neighbor);

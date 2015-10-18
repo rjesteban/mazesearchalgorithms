@@ -19,9 +19,9 @@ public class DFSAlgo extends UninformedSearchAlgo {
     }
 @Override
     public void solve() {
-        Vertex current = null;
-        Stack<Vertex> stack = new Stack<Vertex>();
-        stack.push(new Vertex(startPoint,null,0));
+        Node current = null;
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(new Node(startPoint,null,0));
         int iteration = 0;
         while(!stack.isEmpty()){
             try{
@@ -41,7 +41,7 @@ public class DFSAlgo extends UninformedSearchAlgo {
             
             addNeigbor(current);
             
-            for(Vertex _neighbor:current.neighbor){
+            for(Node _neighbor:current.neighbor){
                 if(!stack.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     stack.push(_neighbor);

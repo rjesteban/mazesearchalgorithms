@@ -23,9 +23,9 @@ public class BFSAlgo extends UninformedSearchAlgo{
 
     @Override
     public void solve() {
-        Vertex current = null;
-        Queue<Vertex> q = new LinkedList<Vertex>();
-        q.offer(new Vertex(startPoint,null,0));
+        Node current = null;
+        Queue<Node> q = new LinkedList<Node>();
+        q.offer(new Node(startPoint,null,0));
         int iteration = 0;
         while(!q.isEmpty()){
             try{
@@ -45,7 +45,7 @@ public class BFSAlgo extends UninformedSearchAlgo{
             
             addNeigbor(current);
             
-            for(Vertex _neighbor:current.neighbor){
+            for(Node _neighbor:current.neighbor){
                 if(!q.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     q.offer(_neighbor);

@@ -22,7 +22,7 @@ public abstract class UninformedSearchAlgo {
     public int maxFrontierSize;
     public int nodesExpanded;
     public int visited;
-    public Vertex endVertex;
+    public Node endVertex;
     
     public abstract void solve();
     
@@ -61,8 +61,8 @@ public abstract class UninformedSearchAlgo {
         }
     }
     
-    public void addNeigbor(Vertex v){
-        ArrayList<Vertex> neighbors = new ArrayList<Vertex>();
+    public void addNeigbor(Node v){
+        ArrayList<Node> neighbors = new ArrayList<Node>();
         
         Point up = new Point(v.pos.x,v.pos.y-1);
         Point right = new Point(v.pos.x+1,v.pos.y);
@@ -95,28 +95,28 @@ public abstract class UninformedSearchAlgo {
 //        }
         
         if(isWalkable(left)){
-            neighbors.add(new Vertex(left,v,v.depth+1));
+            neighbors.add(new Node(left,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
         
         if(isWalkable(right)){
-            neighbors.add(new Vertex(right,v,v.depth+1));
+            neighbors.add(new Node(right,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
         
             if(isWalkable(down)){
-            neighbors.add(new Vertex(down,v,v.depth+1));
+            neighbors.add(new Node(down,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
             
         if(isWalkable(up)){
-            neighbors.add(new Vertex(up,v,v.depth+1));
+            neighbors.add(new Node(up,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
@@ -132,7 +132,7 @@ public abstract class UninformedSearchAlgo {
         return true;
     }
     
-    public int getDepth(Vertex v){
+    public int getDepth(Node v){
         int depth = 0 ;
         while(v.parent!=null){
             depth++;
@@ -142,7 +142,7 @@ public abstract class UninformedSearchAlgo {
     }
     
     public void printSolution(){
-        Vertex w = endVertex;
+        Node w = endVertex;
         int dep = getDepth(w);
         while(w!=null){
             maze[w.pos.y][w.pos.x] = '.';
