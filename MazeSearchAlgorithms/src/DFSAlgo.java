@@ -52,6 +52,7 @@ public class DFSAlgo extends UninformedSearchAlgo {
             }
             //System.out.println();
             //printMaze();
+            printForTinyMaze(current, stack, ++iteration);
         }
         //printMaze();
         //System.out.println();
@@ -60,7 +61,7 @@ public class DFSAlgo extends UninformedSearchAlgo {
     }
     
     public static void main(String[] args) throws IOException {
-        DFSAlgo dfs = new DFSAlgo("tinyMaze.lay.txt");
+        DFSAlgo dfs = new DFSAlgo("openMaze.lay.txt");
         dfs.solve();
     }
     

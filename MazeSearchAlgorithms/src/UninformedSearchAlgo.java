@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -74,28 +75,37 @@ public abstract class UninformedSearchAlgo {
         
         //================================================
         if(isWalkable(left)){
-            neighbors.add(new Node(left,v,v.depth+1));
+            Node n = new Node(left,v,v.depth+1);
+            n.setF(v.depth+1);
+            neighbors.add(n);
+            
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
         
         if(isWalkable(right)){
-            neighbors.add(new Node(right,v,v.depth+1));
+            Node n = new Node(right,v,v.depth+1);
+            n.setF(v.depth+1);
+            neighbors.add(n);
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
         
             if(isWalkable(down)){
-            neighbors.add(new Node(down,v,v.depth+1));
-            if(maxDepth<v.depth+1){
-                maxDepth = v.depth+1;
-            }
+                Node n = new Node(down,v,v.depth+1);
+                n.setF(v.depth+1);
+                neighbors.add(n);
+                if(maxDepth<v.depth+1){
+                    maxDepth = v.depth+1;
+                }
         }
             
         if(isWalkable(up)){
-            neighbors.add(new Node(up,v,v.depth+1));
+            Node n = new Node(up,v,v.depth+1);
+            n.setF(v.depth+1);
+            neighbors.add(n);
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
@@ -142,5 +152,19 @@ public abstract class UninformedSearchAlgo {
         System.out.println("#Nodes Expanded:"+nodesExpanded);
         System.out.println("Maximum Depth Reached:"+maxDepth);
         System.out.println("Maximum Size Frontier:"+maxFrontierSize);
+    }
+    
+    public void printForTinyMaze(Node current,List<Node> frontier, int iter) {
+        System.out.println("=================================");
+        printMaze();
+        System.out.println("ITERATION NUMBER " + iter);
+        if (current.neighbor != null) {
+            System.out.println("Current Node being Expanded: " + current.pos.x + " " + current.pos.y);
+            System.out.println("FRONTIER NODES");
+            for (Node neighbor : frontier) {
+                System.out.println("Node: " + neighbor.toString() + " F Value: " + neighbor.getF());
+            }
+        }
+
     }
 }

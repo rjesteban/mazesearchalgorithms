@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,4 +21,18 @@ public abstract class InformedSearchAlgo extends UninformedSearchAlgo{
     public abstract void computeCost(Node v);
     @Override
     public abstract void solve();
+    
+    @Override
+    public void printForTinyMaze(Node current, List<Node> frontier, int iter) {
+        System.out.println("=================================");
+        System.out.println("ITERATION NUMBER " + iter);
+        if (current.neighbor != null) {
+            System.out.println("Current Node being Expanded: " + current.pos.x + " " + current.pos.y);
+            System.out.println("FRONTIER NODES AND THEIR F VALUES");
+            for (Node neighbor : current.neighbor) {
+                System.out.println("Node: (" + neighbor.pos.x + "," + neighbor.pos.y + ") F Value: " + neighbor.getF());
+            }
+        }
+
+    }
 }

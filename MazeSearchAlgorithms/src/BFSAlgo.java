@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /*
@@ -52,7 +53,7 @@ public class BFSAlgo extends UninformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            //printMaze();
+            printForTinyMaze(current, (List<Node>) q,++iteration);
             //System.out.println();
         }
         //printMaze();
@@ -64,13 +65,13 @@ public class BFSAlgo extends UninformedSearchAlgo{
     public static void main(String[] args) throws IOException {
         BFSAlgo bfs = new BFSAlgo("tinyMaze.lay.txt");
         bfs.solve();
-        bfs = new BFSAlgo("smallMaze.lay.txt");
-        bfs.solve();
-        bfs = new BFSAlgo("mediumMaze.lay.txt");
-        bfs.solve();
-        bfs = new BFSAlgo("bigMaze.lay.txt");
-        bfs.solve();
-        bfs = new BFSAlgo("openMaze.lay.txt");
-        bfs.solve();
+//        bfs = new BFSAlgo("smallMaze.lay.txt");
+//        bfs.solve();
+//        bfs = new BFSAlgo("mediumMaze.lay.txt");
+//        bfs.solve();
+//        bfs = new BFSAlgo("bigMaze.lay.txt");
+//        bfs.solve();
+//        BFSAlgo bfs = new BFSAlgo("openMaze.lay.txt");
+//        bfs.solve();
     }
 }
