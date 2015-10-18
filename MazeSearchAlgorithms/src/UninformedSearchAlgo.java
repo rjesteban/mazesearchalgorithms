@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
-import sun.security.provider.certpath.Vertex;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,13 +24,15 @@ public abstract class UninformedSearchAlgo {
     public int nodesExpanded;
     public int visited;
     public Node endVertex;
-    
+    public String fileName;
     public abstract void solve();
     
     
     public UninformedSearchAlgo(String file) throws IOException{
         BufferedReader sc = new BufferedReader(new FileReader(new File(file)));
         nodesExpanded = maxFrontierSize = maxDepth = visited = 0;
+        
+        fileName = file;
         
         ArrayList<String> rows = new ArrayList<String>();
         String s = sc.readLine();
@@ -129,14 +130,11 @@ public abstract class UninformedSearchAlgo {
             trace.push(w);
             w = w.parent;
         }
-        printMaze();
+        //printMaze();
         System.out.println();
         System.out.print("Path: ");
         while(!trace.isEmpty()){
-            if(trace.size()!=1)
-                System.out.print(trace.pop().toString() + " -> ");
-            else
-                System.out.print(trace.pop().toString());
+            System.out.print(trace.pop().toString());
         }
         System.out.println();
         

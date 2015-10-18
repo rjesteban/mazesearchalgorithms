@@ -106,9 +106,12 @@ public class AStarManhattan extends InformedSearchAlgo{
             if(maxFrontierSize<openList.size()){
                 maxFrontierSize=openList.size();
             }
-            printMaze();
+            //printMaze();
+            //System.out.println();
         }
-        printMaze();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "A* Search Manhattan" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

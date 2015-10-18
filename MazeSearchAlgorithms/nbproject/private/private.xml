@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/InformedSearchAlgo.java</file>
-            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/UninformedSearchAlgo.java</file>
-            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/Vertex.java</file>
             <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/BFSAlgo.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/DFSAlgo.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/GreedyBFSEuclidean.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/GreedyBFSManhattan.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/AStarManhattan.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/AStarEuclidean.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/Node.java</file>
+            <file>file:/C:/Users/rjesteban/Documents/NetBeansProjects/mazesearchalgorithms/MazeSearchAlgorithms/src/UninformedSearchAlgo.java</file>
         </group>
     </open-files>
 </project-private>

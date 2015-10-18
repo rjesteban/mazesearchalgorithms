@@ -81,11 +81,12 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            System.out.println();
-            printMaze();
+            //System.out.println();
+            //printMaze();
         }
-        printMaze();
-        System.out.println();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "Greedy BFS Manhattan" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

@@ -50,11 +50,12 @@ public class DFSAlgo extends UninformedSearchAlgo {
             if(maxFrontierSize<stack.size()){
                 maxFrontierSize=stack.size();
             }
-            System.out.println();
-            printMaze();
+            //System.out.println();
+            //printMaze();
         }
-        printMaze();
-        System.out.println();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "DFS" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

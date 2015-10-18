@@ -52,16 +52,25 @@ public class BFSAlgo extends UninformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            printMaze();
-            System.out.println();
+            //printMaze();
+            //System.out.println();
         }
-        printMaze();
-        System.out.println();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "BFS" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
         BFSAlgo bfs = new BFSAlgo("tinyMaze.lay.txt");
+        bfs.solve();
+        bfs = new BFSAlgo("smallMaze.lay.txt");
+        bfs.solve();
+        bfs = new BFSAlgo("mediumMaze.lay.txt");
+        bfs.solve();
+        bfs = new BFSAlgo("bigMaze.lay.txt");
+        bfs.solve();
+        bfs = new BFSAlgo("openMaze.lay.txt");
         bfs.solve();
     }
 }

@@ -92,11 +92,12 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            printMaze();
-            System.out.println();
+            //printMaze();
+            //System.out.println();
         }
-        printMaze();
-        System.out.println();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "Greedy BFS Euclidean" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

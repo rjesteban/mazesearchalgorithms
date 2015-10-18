@@ -109,11 +109,12 @@ public class AStarEuclidean extends InformedSearchAlgo{
             if(maxFrontierSize<openList.size()){
                 maxFrontierSize=openList.size();
             }
-            printMaze();
-            System.out.println();
+            //printMaze();
+            //System.out.println();
         }
-        printMaze();
-        System.out.println();
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "A* Search Euclidean" + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

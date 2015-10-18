@@ -72,7 +72,7 @@ public class Node {
     
     @Override
     public String toString(){
-        return "(" +pos.x + ", " + pos.y + ")";
+        return "(" +pos.x + "," + pos.y + ")";
     }
 
     @Override
