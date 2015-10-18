@@ -1,7 +1,5 @@
 
-import java.awt.Point;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -55,13 +53,15 @@ public class BFSAlgo extends UninformedSearchAlgo{
                 maxFrontierSize=q.size();
             }
             printMaze();
+            System.out.println();
         }
         printMaze();
+        System.out.println();
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        BFSAlgo bfs = new BFSAlgo("sss.txt");
+        BFSAlgo bfs = new BFSAlgo("mediumMaze.lay.txt");
         bfs.solve();
     }
 }

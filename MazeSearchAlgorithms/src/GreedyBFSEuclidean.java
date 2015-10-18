@@ -93,13 +93,15 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
                 maxFrontierSize=q.size();
             }
             printMaze();
+            System.out.println();
         }
         printMaze();
+        System.out.println();
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        GreedyBFSEuclidean gbfs = new GreedyBFSEuclidean("sss.txt");
+        GreedyBFSEuclidean gbfs = new GreedyBFSEuclidean("smallMaze.lay.txt");
         gbfs.solve();
     }
     

@@ -50,14 +50,16 @@ public class DFSAlgo extends UninformedSearchAlgo {
             if(maxFrontierSize<stack.size()){
                 maxFrontierSize=stack.size();
             }
+            System.out.println();
             printMaze();
         }
         printMaze();
+        System.out.println();
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        DFSAlgo dfs = new DFSAlgo("sss.txt");
+        DFSAlgo dfs = new DFSAlgo("mediumMaze.lay.txt");
         dfs.solve();
     }
     

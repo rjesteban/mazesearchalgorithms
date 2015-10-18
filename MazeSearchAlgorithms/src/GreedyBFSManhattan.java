@@ -81,15 +81,16 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            
+            System.out.println();
             printMaze();
         }
         printMaze();
+        System.out.println();
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        GreedyBFSManhattan gbfs = new GreedyBFSManhattan("sss.txt");
+        GreedyBFSManhattan gbfs = new GreedyBFSManhattan("mediumMaze.lay.txt");
         gbfs.solve();
     }
     

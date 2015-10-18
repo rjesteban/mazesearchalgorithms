@@ -116,7 +116,7 @@ public class AStarEuclidean extends InformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        AStarEuclidean gbfs = new AStarEuclidean("sss.txt");
+        AStarEuclidean gbfs = new AStarEuclidean("smallMaze.lay.txt");
         gbfs.solve();
     }
     

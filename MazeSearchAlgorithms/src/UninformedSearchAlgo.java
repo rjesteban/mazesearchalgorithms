@@ -43,10 +43,10 @@ public abstract class UninformedSearchAlgo {
         for(int r=0;r<rows.size();r++){
             for(int c=0;c<rows.get(0).length();c++){
                 maze[r][c] = rows.get(r).charAt(c);
-                if(maze[r][c] == '.'){
+                if(maze[r][c] == 'P'){
                     startPoint = new Point(c,r);
                 }
-                if(maze[r][c]=='P')
+                if(maze[r][c]=='.')
                     endPoint = new Point(c,r);
             }
         }
