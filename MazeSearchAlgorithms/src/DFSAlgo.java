@@ -1,9 +1,6 @@
 
-import java.awt.Point;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,19 +12,18 @@ import java.util.Queue;
  *
  * @author rjesteban
  */
-public class BFSAlgo extends UninformedSearchAlgo{
+public class DFSAlgo extends UninformedSearchAlgo {
 
-    public BFSAlgo(String file) throws IOException {
+    public DFSAlgo(String file) throws IOException {
         super(file);
     }
-
-    @Override
+@Override
     public void solve() {
         Vertex current = null;
-        Queue<Vertex> q = new LinkedList<Vertex>();
-        q.offer(new Vertex(startPoint,null,0));
+        Stack<Vertex> stack = new Stack<Vertex>();
+        stack.push(new Vertex(startPoint,null,0));
         int iteration = 0;
-        while(!q.isEmpty()){
+        while(!stack.isEmpty()){
             try{
                 if(!current.pos.equals(endPoint)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -35,7 +31,7 @@ public class BFSAlgo extends UninformedSearchAlgo{
                 }
             }catch(Exception e){}
             
-            current = q.remove();
+            current = stack.pop();
             maze[current.pos.y][current.pos.x ] = 'C';
             
             if(current.pos.equals(endPoint)){
@@ -47,10 +43,10 @@ public class BFSAlgo extends UninformedSearchAlgo{
             
             for(Vertex _neighbor:current.neighbor){
                 maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
-                q.offer(_neighbor);
+                stack.push(_neighbor);
             }
-            if(maxFrontierSize<q.size()){
-                maxFrontierSize=q.size();
+            if(maxFrontierSize<stack.size()){
+                maxFrontierSize=stack.size();
             }
             printMaze();
         }
@@ -59,7 +55,8 @@ public class BFSAlgo extends UninformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        BFSAlgo bfs = new BFSAlgo("sss.txt");
-        bfs.solve();
+        DFSAlgo dfs = new DFSAlgo("sss.txt");
+        dfs.solve();
     }
+    
 }

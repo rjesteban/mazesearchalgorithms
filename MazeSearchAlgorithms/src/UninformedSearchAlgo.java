@@ -93,12 +93,12 @@ public abstract class UninformedSearchAlgo {
                 maxDepth = v.depth+1;
             }
         }
-        
         v.neighbor = neighbors;
     }
     
     public boolean isWalkable(Point p){
-        if(maze[p.y][p.x] =='%' || maze[p.y][p.x] == 'C' || maze[p.y][p.x] == 'F' || maze[p.y][p.x]=='V')
+        if(maze[p.y][p.x] =='%' || maze[p.y][p.x] == 'C' ||
+                maze[p.y][p.x] == 'F' || maze[p.y][p.x]=='V')
             return false;
         return true;
     }
