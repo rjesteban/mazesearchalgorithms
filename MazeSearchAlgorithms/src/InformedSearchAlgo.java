@@ -1,6 +1,6 @@
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Queue;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,14 +22,15 @@ public abstract class InformedSearchAlgo extends UninformedSearchAlgo{
     @Override
     public abstract void solve();
     
-    @Override
-    public void printForTinyMaze(Node current, List<Node> frontier, int iter) {
+    
+    public void printForTinyMaze(Node current, Queue<Node> frontier, int iter) {
         System.out.println("=================================");
+        printMaze();
         System.out.println("ITERATION NUMBER " + iter);
         if (current.neighbor != null) {
             System.out.println("Current Node being Expanded: " + current.pos.x + " " + current.pos.y);
             System.out.println("FRONTIER NODES AND THEIR F VALUES");
-            for (Node neighbor : current.neighbor) {
+            for (Node neighbor : frontier) {
                 System.out.println("Node: (" + neighbor.pos.x + "," + neighbor.pos.y + ") F Value: " + neighbor.getF());
             }
         }
