@@ -1,3 +1,7 @@
+package part1;
+
+import utils.InformedSearchAlgo;
+import utils.Node;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;

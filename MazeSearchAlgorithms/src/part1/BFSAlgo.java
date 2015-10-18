@@ -1,4 +1,8 @@
+package part1;
 
+
+import utils.UninformedSearchAlgo;
+import utils.Node;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;

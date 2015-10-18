@@ -1,4 +1,8 @@
+package part1;
 
+
+import utils.InformedSearchAlgo;
+import utils.Node;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,19 +18,16 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class AStarEuclidean extends InformedSearchAlgo{
+public class AStarManhattan extends InformedSearchAlgo{
 
-    public AStarEuclidean(String file) throws IOException {
+    public AStarManhattan(String file) throws IOException {
         super(file);
     }
 
     @Override
     public void computeHeuristic(Node v) {
-        v.setH( Math.sqrt(
-                
-                Math.pow(Math.abs(v.pos.x-endPoint.x),2)+
-              Math.pow(Math.abs(v.pos.y-endPoint.y),2)
-        )
+        v.setH( Math.abs(v.pos.x-endPoint.x)+
+              Math.abs(v.pos.y-endPoint.y)
         );
     }
 
@@ -44,7 +45,7 @@ public class AStarEuclidean extends InformedSearchAlgo{
 
     @Override
     public void solve() {
-        int iteration = 0;
+        int iteration=0;
         PriorityQueue<Node> openList = new PriorityQueue<Node>(
             new Comparator<Node>(){
                 @Override
@@ -116,13 +117,17 @@ public class AStarEuclidean extends InformedSearchAlgo{
         }
         //printMaze();
         //System.out.println();
-        System.out.print("-------" + "A* Search Euclidean" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "A* Search Manhattan " + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        AStarEuclidean gbfs = new AStarEuclidean("tinyMaze.lay.txt");
+        AStarManhattan gbfs = new AStarManhattan("tinyMaze.lay.txt");
         gbfs.solve();
+//            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
+//            gbfsm.solve();
+//        BFSAlgo gbfst = new BFSAlgo("soopen.in");
+//        gbfst.solve();
     }
     
     

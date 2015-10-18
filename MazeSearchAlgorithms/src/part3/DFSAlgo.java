@@ -1,4 +1,9 @@
+package part3;
 
+
+import part1.*;
+import utils.UninformedSearchAlgo;
+import utils.Node;
 import java.io.IOException;
 import java.util.Stack;
 

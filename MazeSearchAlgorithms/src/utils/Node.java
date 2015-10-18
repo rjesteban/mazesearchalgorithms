@@ -1,3 +1,5 @@
+package utils;
+
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -13,10 +15,10 @@ import java.util.ArrayList;
  * @author rjesteban
  */
 public class Node {
-    Point pos;
-    Node parent;
-    ArrayList<Node> neighbor;
-    Integer depth;
+    public Point pos;
+    public Node parent;
+    public ArrayList<Node> neighbor;
+    public Integer depth;
     
     public double f;
     public double g;

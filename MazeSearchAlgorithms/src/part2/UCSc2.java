@@ -1,4 +1,8 @@
+package part2;
 
+
+import utils.UninformedSearchAlgo;
+import utils.Node;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.PriorityQueue;
@@ -13,15 +17,15 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class UCSc1 extends UninformedSearchAlgo{
+public class UCSc2 extends UninformedSearchAlgo{
 
-    public UCSc1(String file) throws IOException {
+    public UCSc2(String file) throws IOException {
         super(file);
     }
     
     public void computeCost(Node n){
         try{
-            n.setF(n.parent.getF() + Math.pow(2,-n.pos.x));
+            n.setF(n.parent.getF() + Math.pow(2,n.pos.x));
         }catch(Exception e){
             n.setF(0);
         }
@@ -76,7 +80,7 @@ public class UCSc1 extends UninformedSearchAlgo{
                     computeCost(_neighbor);
                     q.offer(_neighbor);
                 }else{
-                    double currentF = current.getF() + Math.pow(2,-_neighbor.pos.x);
+                    double currentF = current.getF() + Math.pow(2,_neighbor.pos.x);
                     if(_neighbor.getF()>currentF){
                         _neighbor.setParent(current);
                         computeCost(_neighbor);
@@ -88,9 +92,7 @@ public class UCSc1 extends UninformedSearchAlgo{
             }
             //printForTinyMaze1(current, q, ++iteration);
         }
-        //printMaze();
-        //System.out.println();
-        System.out.print("-------" + "Uniform cost search c1 " + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "Uniform cost search c2 " + fileName.split("\\.")[0]+"-------");
         printSolution();
         
     }
@@ -109,7 +111,7 @@ public class UCSc1 extends UninformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        UCSc1 ucs = new UCSc1("tinyMaze.lay.txt");
+        UCSc2 ucs = new UCSc2("tinyMaze.lay.txt");
         ucs.solve();
     }
    

@@ -1,4 +1,12 @@
 
+import part1.BFSAlgo;
+import part1.AStarEuclidean;
+import part1.GreedyBFSEuclidean;
+import part1.GreedyBFSManhattan;
+import part1.DFSAlgo;
+import part1.AStarManhattan;
+import part2.UCSc2;
+import part2.UCSc1;
 import java.io.IOException;
 
 /*
