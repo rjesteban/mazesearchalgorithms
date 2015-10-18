@@ -61,7 +61,7 @@ public class BFSAlgo extends UninformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        BFSAlgo bfs = new BFSAlgo("mediumMaze.lay.txt");
+        BFSAlgo bfs = new BFSAlgo("tinyMaze.lay.txt");
         bfs.solve();
     }
 }

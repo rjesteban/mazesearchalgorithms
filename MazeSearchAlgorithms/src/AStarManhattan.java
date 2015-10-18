@@ -113,7 +113,7 @@ public class AStarManhattan extends InformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        AStarManhattan gbfs = new AStarManhattan("smallMaze.lay.txt");
+        AStarManhattan gbfs = new AStarManhattan("sss.txt");
         gbfs.solve();
 //            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
 //            gbfsm.solve();

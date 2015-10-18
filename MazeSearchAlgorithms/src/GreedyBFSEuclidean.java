@@ -101,7 +101,7 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        GreedyBFSEuclidean gbfs = new GreedyBFSEuclidean("smallMaze.lay.txt");
+        GreedyBFSEuclidean gbfs = new GreedyBFSEuclidean("tinyMaze.lay.txt");
         gbfs.solve();
     }
     

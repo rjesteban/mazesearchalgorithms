@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Stack;
+import sun.security.provider.certpath.Vertex;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -69,31 +71,7 @@ public abstract class UninformedSearchAlgo {
         Point down = new Point(v.pos.x,v.pos.y+1);
         Point left = new Point(v.pos.x-1,v.pos.y);
         
-//        if(isWalkable(left)){
-//            neighbors.add(new Vertex(left,v,v.depth+1));
-//            if(maxDepth<v.depth+1){
-//                maxDepth = v.depth+1;
-//            }
-//        }
-//        if(isWalkable(up)){
-//            neighbors.add(new Vertex(up,v,v.depth+1));
-//            if(maxDepth<v.depth+1){
-//                maxDepth = v.depth+1;
-//            }
-//        }
-//        if(isWalkable(right)){
-//            neighbors.add(new Vertex(right,v,v.depth+1));
-//            if(maxDepth<v.depth+1){
-//                maxDepth = v.depth+1;
-//            }
-//        }
-//        if(isWalkable(down)){
-//            neighbors.add(new Vertex(down,v,v.depth+1));
-//            if(maxDepth<v.depth+1){
-//                maxDepth = v.depth+1;
-//            }
-//        }
-        
+        //================================================
         if(isWalkable(left)){
             neighbors.add(new Node(left,v,v.depth+1));
             if(maxDepth<v.depth+1){
@@ -144,12 +122,24 @@ public abstract class UninformedSearchAlgo {
     public void printSolution(){
         Node w = endVertex;
         int dep = getDepth(w);
+        Stack<Node> trace = new Stack<Node>();
+        
         while(w!=null){
             maze[w.pos.y][w.pos.x] = '.';
+            trace.push(w);
             w = w.parent;
         }
         printMaze();
-        System.out.println("");
+        System.out.println();
+        System.out.print("Path: ");
+        while(!trace.isEmpty()){
+            if(trace.size()!=1)
+                System.out.print(trace.pop().toString() + " -> ");
+            else
+                System.out.print(trace.pop().toString());
+        }
+        System.out.println();
+        
         System.out.println("Path Cost:"+dep);
         System.out.println("#Nodes Expanded:"+nodesExpanded);
         System.out.println("Maximum Depth Reached:"+maxDepth);

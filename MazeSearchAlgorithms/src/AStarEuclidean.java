@@ -110,13 +110,15 @@ public class AStarEuclidean extends InformedSearchAlgo{
                 maxFrontierSize=openList.size();
             }
             printMaze();
+            System.out.println();
         }
         printMaze();
+        System.out.println();
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        AStarEuclidean gbfs = new AStarEuclidean("smallMaze.lay.txt");
+        AStarEuclidean gbfs = new AStarEuclidean("tinyMaze.lay.txt");
         gbfs.solve();
     }
     

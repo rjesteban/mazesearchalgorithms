@@ -90,7 +90,7 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        GreedyBFSManhattan gbfs = new GreedyBFSManhattan("mediumMaze.lay.txt");
+        GreedyBFSManhattan gbfs = new GreedyBFSManhattan("tinyMaze.lay.txt");
         gbfs.solve();
     }
     

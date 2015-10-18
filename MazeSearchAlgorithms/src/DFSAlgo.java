@@ -59,7 +59,7 @@ public class DFSAlgo extends UninformedSearchAlgo {
     }
     
     public static void main(String[] args) throws IOException {
-        DFSAlgo dfs = new DFSAlgo("mediumMaze.lay.txt");
+        DFSAlgo dfs = new DFSAlgo("tinyMaze.lay.txt");
         dfs.solve();
     }
     

@@ -69,6 +69,11 @@ public class Node {
     public boolean equals(Object o) {
         return o.hashCode() == this.hashCode();
     }
+    
+    @Override
+    public String toString(){
+        return "(" +pos.x + ", " + pos.y + ")";
+    }
 
     @Override
     public int hashCode() {
