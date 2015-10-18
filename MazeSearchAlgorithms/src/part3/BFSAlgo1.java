@@ -52,7 +52,7 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
         int iteration = 0;
         while(!q.isEmpty() || endPoints.size()>0){
             try{
-                if(!current.pos.equals(endPoint)){
+                if(!endPoints.contains(current.pos)){
                     maze[current.pos.y][current.pos.x ] = 'V';
                     nodesExpanded++;
                 }
