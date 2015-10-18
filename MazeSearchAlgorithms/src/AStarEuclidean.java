@@ -14,16 +14,19 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class AStarManhattan extends InformedSearchAlgo{
+public class AStarEuclidean extends InformedSearchAlgo{
 
-    public AStarManhattan(String file) throws IOException {
+    public AStarEuclidean(String file) throws IOException {
         super(file);
     }
 
     @Override
     public void computeHeuristic(Vertex v) {
-        v.setH( Math.abs(v.pos.x-endPoint.x)+
-              Math.abs(v.pos.y-endPoint.y)
+        v.setH( Math.sqrt(
+                
+                Math.pow(Math.abs(v.pos.x-endPoint.x),2)+
+              Math.pow(Math.abs(v.pos.y-endPoint.y),2)
+        )
         );
     }
 
@@ -113,7 +116,7 @@ public class AStarManhattan extends InformedSearchAlgo{
     }
     
     public static void main(String[] args) throws IOException {
-        AStarManhattan gbfs = new AStarManhattan("sss.txt");
+        AStarEuclidean gbfs = new AStarEuclidean("sss.txt");
         gbfs.solve();
 //            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
 //            gbfsm.solve();
