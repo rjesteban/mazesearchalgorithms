@@ -1,6 +1,6 @@
+
 import java.io.IOException;
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 /*
@@ -13,61 +13,45 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class GreedyBFSEuclidean extends InformedSearchAlgo{
+public class UCSc1 extends UninformedSearchAlgo{
 
-    public GreedyBFSEuclidean(String file) throws IOException {
+    public UCSc1(String file) throws IOException {
         super(file);
     }
-
-    @Override
-    public void computeHeuristic(Node v) {
-        v.setH ( Math.sqrt(
-            Math.pow(v.pos.x-endPoint.x,2)
-                +
-            Math.pow(v.pos.y-endPoint.y,2)
-            )
-        );
-        
-        v.setF( Math.sqrt(
-            Math.pow(v.pos.x-endPoint.x,2)
-                +
-            Math.pow(v.pos.y-endPoint.y,2)
-            )
-        );
-        
-    }
     
-
-    @Override
-    public void computeCost(Node v) {
-        v.setG(0);
-        v.setF(v.getH());
+    public void computeCost(Node n){
+        try{
+            n.setF(n.parent.getF() + Math.pow(0.5,n.pos.x));
+        }catch(Exception e){
+            n.setF(Math.pow(0.5,n.pos.x));
+        }
     }
 
     @Override
     public void solve() {
         int iteration = 0;
         PriorityQueue<Node> q = new PriorityQueue<Node>(
-            new Comparator<Node>(){
+        new Comparator<Node>(){
                 @Override
-                public int compare(Node o1, Node o2){
-                    
-                    double _o1 = o1.getH();
-                    double _o2 = o2.getH();
+                public int compare(Node o2, Node o1){
+                    double _o1 = o1.getF();
+                    double _o2 = o2.getF();
                     if (_o1 > _o2) {
-                        return 1;
-                    } else if (_o1 < _o2) 
                         return -1;
+                    } else if (_o1 < _o2) 
+                        return 1;
                     else
                         return 0;
                 }
             }
         );
+        
         Node start = new Node(startPoint,null,0);
-        computeHeuristic(start);
+        computeCost(start);
         q.offer(start);
         Node current = null;
         while(!q.isEmpty()){
+            
             try{
                 if(!current.pos.equals(endPoint)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -88,7 +72,6 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
             for(Node _neighbor:current.neighbor){
                 if(!q.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
-                    computeHeuristic(_neighbor);
                     computeCost(_neighbor);
                     q.offer(_neighbor);
                 }
@@ -96,15 +79,32 @@ public class GreedyBFSEuclidean extends InformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            printForTinyMaze(current, q, ++iteration);
+            //System.out.println();
+            //printMaze();
+            printForTinyMaze1(current, q, ++iteration);
         }
-        System.out.print("-------" + "Greedy BFS Euclidean " + fileName.split("\\.")[0]+"-------");
+        //printMaze();
+        //System.out.println();
+        System.out.print("-------" + "Greedy BFS Manhattan " + fileName.split("\\.")[0]+"-------");
         printSolution();
+        
     }
     
-    public static void main(String[] args) throws IOException {
-        GreedyBFSEuclidean gbfs = new GreedyBFSEuclidean("tinyMaze.lay.txt");
-        gbfs.solve();
+    public void printForTinyMaze1(Node current, PriorityQueue<Node> q, int iteration){
+        System.out.println("=================================");
+        printMaze();
+        System.out.println("ITERATION NUMBER " + iteration);
+        if (current.neighbor != null) {
+            System.out.println("Current Node being Expanded: " + current.pos.x + " " + current.pos.y);
+            System.out.println("FRONTIER NODES");
+            for (Node neighbor : q) {
+                System.out.println("Node: " + neighbor.toString() + " F Value: " + neighbor.getF());
+            }
+        }
     }
     
+    public static void main(String[] args) {
+        
+    }
+   
 }

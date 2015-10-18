@@ -140,8 +140,8 @@ public abstract class UninformedSearchAlgo {
             trace.push(w);
             w = w.parent;
         }
-        //printMaze();
         System.out.println();
+        printMaze();
         System.out.print("Path: ");
         while(!trace.isEmpty()){
             System.out.print(trace.pop().toString());

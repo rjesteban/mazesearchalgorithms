@@ -28,11 +28,13 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
     
     @Override
     public void computeCost(Node v) {
-        v.f = v.g = 0;
+        v.setG(0);
+        v.setF(v.getH());
     }
 
     @Override
     public void solve() {
+        int iteration = 0;
         PriorityQueue<Node> q = new PriorityQueue<Node>(
             new Comparator<Node>(){
                 @Override
@@ -75,6 +77,7 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
                 if(!q.contains(_neighbor)){
                     maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
                     computeHeuristic(_neighbor);
+                    computeCost(_neighbor);
                     q.offer(_neighbor);
                 }
             }
@@ -83,10 +86,11 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
             }
             //System.out.println();
             //printMaze();
+            printForTinyMaze(current, q, ++iteration);
         }
         //printMaze();
         //System.out.println();
-        System.out.print("-------" + "Greedy BFS Manhattan" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "Greedy BFS Manhattan " + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

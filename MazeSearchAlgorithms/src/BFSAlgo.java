@@ -54,11 +54,8 @@ public class BFSAlgo extends UninformedSearchAlgo{
                 maxFrontierSize=q.size();
             }
             printForTinyMaze(current, (List<Node>) q,++iteration);
-            //System.out.println();
         }
-        //printMaze();
-        //System.out.println();
-        System.out.print("-------" + "BFS" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "BFS " + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     

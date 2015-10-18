@@ -41,6 +41,7 @@ public class AStarManhattan extends InformedSearchAlgo{
 
     @Override
     public void solve() {
+        int iteration=0;
         PriorityQueue<Node> openList = new PriorityQueue<Node>(
             new Comparator<Node>(){
                 @Override
@@ -108,15 +109,16 @@ public class AStarManhattan extends InformedSearchAlgo{
             }
             //printMaze();
             //System.out.println();
+            printForTinyMaze(current, openList, ++iteration);
         }
         //printMaze();
         //System.out.println();
-        System.out.print("-------" + "A* Search Manhattan" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "A* Search Manhattan " + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        AStarManhattan gbfs = new AStarManhattan("sss.txt");
+        AStarManhattan gbfs = new AStarManhattan("tinyMaze.lay.txt");
         gbfs.solve();
 //            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
 //            gbfsm.solve();

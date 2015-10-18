@@ -44,6 +44,7 @@ public class AStarEuclidean extends InformedSearchAlgo{
 
     @Override
     public void solve() {
+        int iteration = 0;
         PriorityQueue<Node> openList = new PriorityQueue<Node>(
             new Comparator<Node>(){
                 @Override
@@ -111,6 +112,7 @@ public class AStarEuclidean extends InformedSearchAlgo{
             }
             //printMaze();
             //System.out.println();
+            printForTinyMaze(current, openList, ++iteration);
         }
         //printMaze();
         //System.out.println();

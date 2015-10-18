@@ -17,7 +17,8 @@ public class DFSAlgo extends UninformedSearchAlgo {
     public DFSAlgo(String file) throws IOException {
         super(file);
     }
-@Override
+    
+    @Override
     public void solve() {
         Node current = null;
         Stack<Node> stack = new Stack<Node>();
@@ -50,18 +51,15 @@ public class DFSAlgo extends UninformedSearchAlgo {
             if(maxFrontierSize<stack.size()){
                 maxFrontierSize=stack.size();
             }
-            //System.out.println();
-            //printMaze();
+            
             printForTinyMaze(current, stack, ++iteration);
         }
-        //printMaze();
-        //System.out.println();
-        System.out.print("-------" + "DFS" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "DFS " + fileName.split("\\.")[0]+"-------");
         printSolution();
     }
     
     public static void main(String[] args) throws IOException {
-        DFSAlgo dfs = new DFSAlgo("openMaze.lay.txt");
+        DFSAlgo dfs = new DFSAlgo("tinyMaze.lay.txt");
         dfs.solve();
     }
     
