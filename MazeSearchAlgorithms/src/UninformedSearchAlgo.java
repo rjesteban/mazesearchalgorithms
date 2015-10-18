@@ -103,10 +103,6 @@ public abstract class UninformedSearchAlgo {
         return true;
     }
     
-    public double computeCost(Vertex v){
-        return 3;
-    }
-    
     public int getDepth(Vertex v){
         int depth = 0 ;
         while(v.parent!=null){

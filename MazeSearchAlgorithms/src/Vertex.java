@@ -28,6 +28,16 @@ public class Vertex {
         depth = _depth;
     }
     
+    
+    public double getH(){
+        return h;
+    }
+    
+    public void setH(double _h){
+        h = _h;
+    }
+    
+    
        @Override
     public boolean equals(Object o) {
         return o.hashCode() == this.hashCode();

@@ -16,8 +16,8 @@ public abstract class InformedSearchAlgo extends UninformedSearchAlgo{
     public InformedSearchAlgo(String file) throws IOException {
         super(file);
     }
-    public abstract double computeHeuristic(Vertex v);
-    public abstract double compute_GCost(Vertex v);
+    public abstract void computeHeuristic(Vertex v);
+    public abstract void computeCost(Vertex v);
     @Override
     public abstract void solve();
 }
