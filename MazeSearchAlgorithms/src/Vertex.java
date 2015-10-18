@@ -28,15 +28,42 @@ public class Vertex {
         depth = _depth;
     }
     
+    public int getDepth(){
+        return depth;
+    }
+    
     
     public double getH(){
         return h;
+    }
+    
+    public double getF(){
+        return f;
+    }
+    
+    public double getG(){
+        return g;
+    }
+    
+    public Vertex getParent(){
+        return parent;
+    }
+    
+    public void setParent(Vertex _parent){
+        parent = _parent;
     }
     
     public void setH(double _h){
         h = _h;
     }
     
+    public void setF(double _f){
+        f = _f;
+    }
+    
+    public void setG(double _g){
+        g = _g;
+    }
     
        @Override
     public boolean equals(Object o) {

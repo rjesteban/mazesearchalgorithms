@@ -46,8 +46,10 @@ public class BFSAlgo extends UninformedSearchAlgo{
             addNeigbor(current);
             
             for(Vertex _neighbor:current.neighbor){
-                maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
-                q.offer(_neighbor);
+                if(!q.contains(_neighbor)){
+                    maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
+                    q.offer(_neighbor);
+                }
             }
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();

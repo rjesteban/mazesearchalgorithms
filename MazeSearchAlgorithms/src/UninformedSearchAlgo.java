@@ -69,36 +69,65 @@ public abstract class UninformedSearchAlgo {
         Point down = new Point(v.pos.x,v.pos.y+1);
         Point left = new Point(v.pos.x-1,v.pos.y);
         
+//        if(isWalkable(left)){
+//            neighbors.add(new Vertex(left,v,v.depth+1));
+//            if(maxDepth<v.depth+1){
+//                maxDepth = v.depth+1;
+//            }
+//        }
+//        if(isWalkable(up)){
+//            neighbors.add(new Vertex(up,v,v.depth+1));
+//            if(maxDepth<v.depth+1){
+//                maxDepth = v.depth+1;
+//            }
+//        }
+//        if(isWalkable(right)){
+//            neighbors.add(new Vertex(right,v,v.depth+1));
+//            if(maxDepth<v.depth+1){
+//                maxDepth = v.depth+1;
+//            }
+//        }
+//        if(isWalkable(down)){
+//            neighbors.add(new Vertex(down,v,v.depth+1));
+//            if(maxDepth<v.depth+1){
+//                maxDepth = v.depth+1;
+//            }
+//        }
+        
         if(isWalkable(left)){
             neighbors.add(new Vertex(left,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
-        if(isWalkable(up)){
-            neighbors.add(new Vertex(up,v,v.depth+1));
-            if(maxDepth<v.depth+1){
-                maxDepth = v.depth+1;
-            }
-        }
+        
         if(isWalkable(right)){
             neighbors.add(new Vertex(right,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
-        if(isWalkable(down)){
+        
+            if(isWalkable(down)){
             neighbors.add(new Vertex(down,v,v.depth+1));
             if(maxDepth<v.depth+1){
                 maxDepth = v.depth+1;
             }
         }
+            
+        if(isWalkable(up)){
+            neighbors.add(new Vertex(up,v,v.depth+1));
+            if(maxDepth<v.depth+1){
+                maxDepth = v.depth+1;
+            }
+        }
+        
         v.neighbor = neighbors;
     }
     
     public boolean isWalkable(Point p){
         if(maze[p.y][p.x] =='%' || maze[p.y][p.x] == 'C' ||
-                maze[p.y][p.x] == 'F' || maze[p.y][p.x]=='V')
+                /*maze[p.y][p.x] == 'F' ||*/ maze[p.y][p.x]=='V')
             return false;
         return true;
     }

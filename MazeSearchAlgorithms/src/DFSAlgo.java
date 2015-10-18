@@ -42,8 +42,10 @@ public class DFSAlgo extends UninformedSearchAlgo {
             addNeigbor(current);
             
             for(Vertex _neighbor:current.neighbor){
-                maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
-                stack.push(_neighbor);
+                if(!stack.contains(_neighbor)){
+                    maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
+                    stack.push(_neighbor);
+                }
             }
             if(maxFrontierSize<stack.size()){
                 maxFrontierSize=stack.size();

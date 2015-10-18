@@ -53,6 +53,7 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
         q.offer(start);
         Vertex current = null;
         while(!q.isEmpty()){
+            
             try{
                 if(!current.pos.equals(endPoint)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -71,13 +72,16 @@ public class GreedyBFSManhattan extends InformedSearchAlgo{
             addNeigbor(current);
             
             for(Vertex _neighbor:current.neighbor){
-                maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
-                computeHeuristic(_neighbor);
-                q.offer(_neighbor);
+                if(!q.contains(_neighbor)){
+                    maze[_neighbor.pos.y][_neighbor.pos.x] = 'F';
+                    computeHeuristic(_neighbor);
+                    q.offer(_neighbor);
+                }
             }
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
+            
             printMaze();
         }
         printMaze();
