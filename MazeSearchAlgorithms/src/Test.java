@@ -14,19 +14,24 @@ import java.io.IOException;
 public class Test {
     public static void main(String[] args) throws IOException{
         
-        printByMaze("tinyMaze.lay.txt");
+//        printByMazePart1("tinyMaze.lay.txt");
+        printByMazePart2("tinyMaze.lay.txt");
         System.out.println("----------------------------------------");
-        printByMaze("smallMaze.lay.txt");
+//        printByMazePart1("smallMaze.lay.txt");
+        printByMazePart2("smallMaze.lay.txt");
         System.out.println("----------------------------------------");
-        printByMaze("mediumMaze.lay.txt");
+//        printByMazePart1("mediumMaze.lay.txt");
+        printByMazePart2("mediumMaze.lay.txt");
         System.out.println("----------------------------------------");
-        printByMaze("bigMaze.lay.txt");
+//        printByMazePart1("bigMaze.lay.txt");
+        printByMazePart2("bigMaze.lay.txt");
         System.out.println("----------------------------------------");
-        printByMaze("openMaze.lay.txt");
+//        printByMazePart1("openMaze.lay.txt");
+        printByMazePart2("openMaze.lay.txt");
         
     }
     
-    public static void printByMaze(String maze) throws IOException{
+    public static void printByMazePart1(String maze) throws IOException{
         BFSAlgo algo = new BFSAlgo(maze);
         algo.solve();
         DFSAlgo algo1 = new DFSAlgo(maze);
@@ -40,5 +45,12 @@ public class Test {
         AStarManhattan algo5 = new AStarManhattan(maze);
         algo5.solve();
     
+    }
+    
+    public static void printByMazePart2(String maze) throws IOException{
+        UCSc1 c1 = new UCSc1(maze);
+        c1.solve();
+        UCSc2 c2 = new UCSc2(maze);
+        c2.solve();
     }
 }
