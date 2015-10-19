@@ -29,6 +29,7 @@ public abstract class UninformedSearchAlgo {
     public Node endVertex;
     public String fileName;
     public abstract void solve();
+    public char[][] clonemaze;
     
     
     public UninformedSearchAlgo(String file) throws IOException{
@@ -66,7 +67,7 @@ public abstract class UninformedSearchAlgo {
             Stack<Node> trace = new Stack<Node>();
 
             while(w!=null){
-                maze[w.pos.y][w.pos.x] = '.';
+                maze[w.pos.y][w.pos.x] = '-';
                 trace.push(w);
                 w = w.parent;
             }
@@ -93,13 +94,22 @@ public abstract class UninformedSearchAlgo {
     }
     
     public void reReadMaze(ArrayList<Point> endPoints){
+        clonemaze = new char[maze.length][maze[0].length];
         for(int r=0;r<maze.length;r++){
             for(int c=0;c<maze[0].length;c++){
+                clonemaze[r][c] = maze[r][c];
                 if(maze[r][c] == 'P')
                     startPoint = new Point(c,r);
                 if(maze[r][c]=='.')
                     endPoints.add(new Point(c,r));
             }
+        }
+    }
+    
+    public void resetMaze(){
+        for(int r=0;r<maze.length;r++){
+            for(int c=0;c<maze[0].length;c++)
+                maze[r][c] = clonemaze[r][c];
         }
     }
     

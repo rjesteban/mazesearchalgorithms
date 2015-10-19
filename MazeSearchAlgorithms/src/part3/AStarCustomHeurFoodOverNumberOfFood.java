@@ -19,19 +19,27 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class AStarCustomHeur0 extends InformedSearchAlgo{
+public class AStarCustomHeurFoodOverNumberOfFood extends InformedSearchAlgo{
 
     public ArrayList<Point> endPoints;
+    ArrayList<Node> goals;
+    public int totalnumberofEndpoints;
     
-    public AStarCustomHeur0(String file) throws IOException {
+    public AStarCustomHeurFoodOverNumberOfFood(String file) throws IOException {
         super(file);
         endPoints = new ArrayList<Point>();
         reReadMaze(endPoints);
+        totalnumberofEndpoints = endPoints.size();
     }
 
     @Override
     public void computeHeuristic(Node v) {
-        v.setH(0);
+//        try{
+            v.setH(Math.abs(totalnumberofEndpoints-goals.size())/totalnumberofEndpoints);
+//        }
+//        catch(Exception e){
+//            System.out.println("--------------------_________----------________-----------________---------- " + endPoints.size() + " " + goals.size());
+//        }
     }
 
     @Override
@@ -48,7 +56,7 @@ public class AStarCustomHeur0 extends InformedSearchAlgo{
 
     @Override
     public void solve() {
-        ArrayList<Node> goals = new ArrayList<Node>();
+        goals = new ArrayList<Node>();
         int iteration=0;
         PriorityQueue<Node> openList = new PriorityQueue<Node>(
             new Comparator<Node>(){
@@ -122,12 +130,12 @@ public class AStarCustomHeur0 extends InformedSearchAlgo{
         }
         //printMaze();
         //System.out.println();
-        System.out.print("-------" + "A* Search @ h(s) = 0" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "A* Search remaining over total goals" + fileName.split("\\.")[0]+"-------");
         printSolution1(goals);
     }
     
     public static void main(String[] args) throws IOException {
-        AStarCustomHeur0 gbfs = new AStarCustomHeur0("trialtinynila");
+        AStarCustomHeurFoodOverNumberOfFood gbfs = new AStarCustomHeurFoodOverNumberOfFood("trialtinynila");
         gbfs.solve();
 //            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
 //            gbfsm.solve();

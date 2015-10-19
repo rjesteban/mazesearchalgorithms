@@ -40,7 +40,7 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
         Queue<Node> q = new LinkedList<Node>();
         q.offer(new Node(startPoint,null,0));
         int iteration = 0;
-        while(!q.isEmpty() && endPoints.size()>0){
+        while(!q.isEmpty() && !endPoints.isEmpty()){
             try{
                 if(!endPoints.contains(current.pos)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -69,7 +69,7 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
             if(maxFrontierSize<q.size()){
                 maxFrontierSize=q.size();
             }
-            printForTinyMaze(current, (List<Node>) q,++iteration);
+           // printForTinyMaze(current, (List<Node>) q,++iteration);
         }
         System.out.print("-------" + "BFS " + fileName.split("\\.")[0]+"-------");
         printSolution1(goals);

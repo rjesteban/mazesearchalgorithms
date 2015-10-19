@@ -35,7 +35,7 @@ public class DFSAlgo1 extends UninformedSearchAlgo {
         Stack<Node> stack = new Stack<Node>();
         stack.push(new Node(startPoint,null,0));
         int iteration = 0;
-        while(!stack.isEmpty()){
+        while(!stack.isEmpty() && !endPoints.isEmpty()){
             try{
                 if(!current.pos.equals(endPoint)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -64,7 +64,7 @@ public class DFSAlgo1 extends UninformedSearchAlgo {
                 maxFrontierSize=stack.size();
             }
             
-            printForTinyMaze(current, stack, ++iteration);
+            //printForTinyMaze(current, stack, ++iteration);
         }
         System.out.print("-------" + "DFS " + fileName.split("\\.")[0]+"-------");
         printSolution1(goals);

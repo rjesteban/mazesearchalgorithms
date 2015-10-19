@@ -19,11 +19,11 @@ import java.util.PriorityQueue;
  *
  * @author rjesteban
  */
-public class AStarCustomHeur0 extends InformedSearchAlgo{
+public class AStarCustomHeur1 extends InformedSearchAlgo{
 
     public ArrayList<Point> endPoints;
     
-    public AStarCustomHeur0(String file) throws IOException {
+    public AStarCustomHeur1(String file) throws IOException {
         super(file);
         endPoints = new ArrayList<Point>();
         reReadMaze(endPoints);
@@ -31,7 +31,7 @@ public class AStarCustomHeur0 extends InformedSearchAlgo{
 
     @Override
     public void computeHeuristic(Node v) {
-        v.setH(0);
+        v.setH(1);
     }
 
     @Override
@@ -76,6 +76,7 @@ public class AStarCustomHeur0 extends InformedSearchAlgo{
         
         Node current = null;
         
+        
         while(!openList.isEmpty() && !endPoints.isEmpty()){
             try{
                 if(!current.pos.equals(endPoint)){
@@ -118,16 +119,16 @@ public class AStarCustomHeur0 extends InformedSearchAlgo{
             }
             //printMaze();
             //System.out.println();
-           // printForTinyMaze(current, openList, ++iteration);
+            //printForTinyMaze(current, openList, ++iteration);
         }
         //printMaze();
         //System.out.println();
-        System.out.print("-------" + "A* Search @ h(s) = 0" + fileName.split("\\.")[0]+"-------");
+        System.out.print("-------" + "A* Search @ h(s) =1 " + fileName.split("\\.")[0]+"-------");
         printSolution1(goals);
     }
     
     public static void main(String[] args) throws IOException {
-        AStarCustomHeur0 gbfs = new AStarCustomHeur0("trialtinynila");
+        AStarCustomHeur1 gbfs = new AStarCustomHeur1("trialtinynila");
         gbfs.solve();
 //            GreedyBFSEuclidean gbfsm = new GreedyBFSEuclidean("soopen.in");
 //            gbfsm.solve();

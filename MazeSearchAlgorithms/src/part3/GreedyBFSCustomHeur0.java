@@ -64,7 +64,7 @@ public class GreedyBFSCustomHeur0 extends InformedSearchAlgo{
         computeHeuristic(start);
         q.offer(start);
         Node current = null;
-        while(!q.isEmpty()){
+        while(!q.isEmpty() && !endPoints.isEmpty()){
             
             try{
                 if(!current.pos.equals(endPoint)){
@@ -97,7 +97,7 @@ public class GreedyBFSCustomHeur0 extends InformedSearchAlgo{
             }
             //System.out.println();
             //printMaze();
-            printForTinyMaze(current, q, ++iteration);
+        //    printForTinyMaze(current, q, ++iteration);
         }
         //printMaze();
         //System.out.println();
