@@ -58,6 +58,51 @@ public abstract class UninformedSearchAlgo {
         }
     }
     
+    public void printSolution1(ArrayList<Node> goals){
+        ArrayList<String> path = new ArrayList<String>();
+        int pathcost = 0;
+        for(Node w: goals){
+            int dep = getDepth(w);
+            Stack<Node> trace = new Stack<Node>();
+
+            while(w!=null){
+                maze[w.pos.y][w.pos.x] = '.';
+                trace.push(w);
+                w = w.parent;
+            }
+            while(!trace.isEmpty()){
+                //System.out.print(trace.pop().toString());
+                path.add(trace.pop().toString());
+            }
+        }
+        System.out.println();
+        printMaze();
+        System.out.print("Path: ");
+        for(String _s:path){
+            System.out.print(_s);
+        }
+        /*while(!trace.isEmpty()){
+            System.out.print(trace.pop().toString());
+        }*/
+        System.out.println();
+        
+        System.out.println("Path Cost:"+path.size());
+        System.out.println("#Nodes Expanded:"+nodesExpanded);
+        System.out.println("Maximum Depth Reached:"+maxDepth);
+        System.out.println("Maximum Size Frontier:"+maxFrontierSize);
+    }
+    
+    public void reReadMaze(ArrayList<Point> endPoints){
+        for(int r=0;r<maze.length;r++){
+            for(int c=0;c<maze[0].length;c++){
+                if(maze[r][c] == 'P')
+                    startPoint = new Point(c,r);
+                if(maze[r][c]=='.')
+                    endPoints.add(new Point(c,r));
+            }
+        }
+    }
+    
     public void printMaze(){
         for(int r=0; r<maze.length; r++){
             for(int c=0; c<maze[0].length; c++){
@@ -155,6 +200,7 @@ public abstract class UninformedSearchAlgo {
         System.out.println("Maximum Depth Reached:"+maxDepth);
         System.out.println("Maximum Size Frontier:"+maxFrontierSize);
     }
+    
     
     public void printForTinyMaze(Node current,List<Node> frontier, int iter) {
         System.out.println("=================================");

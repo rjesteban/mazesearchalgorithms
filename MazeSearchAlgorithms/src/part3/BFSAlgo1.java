@@ -2,9 +2,6 @@ package part3;
 
 
 import java.awt.Point;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import utils.UninformedSearchAlgo;
 import utils.Node;
 import java.io.IOException;
@@ -12,6 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,27 +28,19 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
     public BFSAlgo1(String file) throws IOException {
         super(file);
         endPoints = new ArrayList<Point>();
-        reReadMaze();
+        reReadMaze(endPoints);
     }
     
-    public void reReadMaze(){
-        for(int r=0;r<maze.length;r++){
-            for(int c=0;c<maze[0].length;c++){
-                if(maze[r][c] == 'P')
-                    startPoint = new Point(c,r);
-                if(maze[r][c]=='.')
-                    endPoints.add(new Point(c,r));
-            }
-        }
-    }
+
 
     @Override
     public void solve() {
+        ArrayList<Node> goals = new ArrayList<Node>();
         Node current = null;
         Queue<Node> q = new LinkedList<Node>();
         q.offer(new Node(startPoint,null,0));
         int iteration = 0;
-        while(!q.isEmpty() || endPoints.size()>0){
+        while(!q.isEmpty() && endPoints.size()>0){
             try{
                 if(!endPoints.contains(current.pos)){
                     maze[current.pos.y][current.pos.x ] = 'V';
@@ -61,9 +51,11 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
             current = q.remove();
             maze[current.pos.y][current.pos.x ] = 'C';
             
-            if(current.pos.equals(endPoint)){
+            //if(current.pos.equals(endPoint)){
+            if(endPoints.contains(current.pos)){
                 endVertex = current;
-                break;
+                goals.add(current);
+                endPoints.remove(current.pos);
             }
             
             addNeigbor(current);
@@ -80,11 +72,12 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
             printForTinyMaze(current, (List<Node>) q,++iteration);
         }
         System.out.print("-------" + "BFS " + fileName.split("\\.")[0]+"-------");
-        printSolution();
+        printSolution1(goals);
     }
     
     public static void main(String[] args) throws IOException {
-        BFSAlgo1 bfs = new BFSAlgo1("tinyMaze.lay.txt");
+        //BFSAlgo1 bfs = new BFSAlgo1("tinySearch.lay.txt");
+        BFSAlgo1 bfs = new BFSAlgo1("trialtinynila");
         bfs.solve();
 //        bfs = new BFSAlgo("smallMaze.lay.txt");
 //        bfs.solve();
@@ -96,3 +89,4 @@ public final class BFSAlgo1 extends UninformedSearchAlgo{
 //        bfs.solve();
     }
 }
+

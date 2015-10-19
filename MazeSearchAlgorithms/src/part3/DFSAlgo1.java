@@ -1,10 +1,11 @@
 package part3;
 
 
-import part1.*;
+import java.awt.Point;
 import utils.UninformedSearchAlgo;
 import utils.Node;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /*
@@ -17,14 +18,19 @@ import java.util.Stack;
  *
  * @author rjesteban
  */
-public class DFSAlgo extends UninformedSearchAlgo {
-
-    public DFSAlgo(String file) throws IOException {
+public class DFSAlgo1 extends UninformedSearchAlgo {
+    ArrayList<Point> endPoints;
+    
+    
+    public DFSAlgo1(String file) throws IOException {
         super(file);
+        endPoints = new ArrayList<Point>();
+        reReadMaze(endPoints);
     }
     
     @Override
     public void solve() {
+        ArrayList<Node> goals = new ArrayList<Node>();
         Node current = null;
         Stack<Node> stack = new Stack<Node>();
         stack.push(new Node(startPoint,null,0));
@@ -40,9 +46,10 @@ public class DFSAlgo extends UninformedSearchAlgo {
             current = stack.pop();
             maze[current.pos.y][current.pos.x ] = 'C';
             
-            if(current.pos.equals(endPoint)){
+            if(endPoints.contains(current.pos)){
                 endVertex = current;
-                break;
+                goals.add(current);
+                endPoints.remove(current.pos);
             }
             
             addNeigbor(current);
@@ -60,11 +67,14 @@ public class DFSAlgo extends UninformedSearchAlgo {
             printForTinyMaze(current, stack, ++iteration);
         }
         System.out.print("-------" + "DFS " + fileName.split("\\.")[0]+"-------");
-        printSolution();
+        printSolution1(goals);
     }
     
+    
+    
     public static void main(String[] args) throws IOException {
-        DFSAlgo dfs = new DFSAlgo("tinyMaze.lay.txt");
+        DFSAlgo1 dfs = new DFSAlgo1("trialtinynila");
+        //DFSAlgo1 dfs = new DFSAlgo1("tinyMaze.lay.txt");
         dfs.solve();
     }
     
