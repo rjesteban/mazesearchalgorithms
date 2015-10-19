@@ -56,7 +56,7 @@ public class AStarCustomHeurEuclidean extends InformedSearchAlgo{
         ArrayList<Node> goals = new ArrayList<Node>();
         
         
-        System.out.println("skldakldjsa: " + endPoints.size());
+        //System.out.println("skldakldjsa: " + endPoints.size());
         
         for(Point cur: endPoints){
             endPoint = cur;
@@ -136,12 +136,13 @@ public class AStarCustomHeurEuclidean extends InformedSearchAlgo{
                 //System.out.println();
                // printForTinyMaze(current, openList, ++iteration);
             }
+            //System.out.println("--------------------------------------------------------------------"+nodesExpanded);
         }
         //printMaze();
         //System.out.println();
         System.out.print("-------" + "A* Search Euclidean " + fileName.split("\\.")[0]+"-------");
         printSolution1(goals);
-        System.out.println("---------- " + goals.size());
+        //System.out.println("---------- " + goals.size());
     }
     
     public static void main(String[] args) throws IOException {
