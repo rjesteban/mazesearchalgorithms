@@ -1,0 +1,147 @@
+run:
+=================================
+%%%%%%%
+%   FC%
+% %%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 1
+Current Node being Expanded: 5 1
+FRONTIER NODES AND THEIR F VALUES
+Node: (4,1) F Value: 7.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%  FCV%
+% %%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 2
+Current Node being Expanded: 4 1
+FRONTIER NODES AND THEIR F VALUES
+Node: (3,1) F Value: 6.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+% FCVV%
+% %%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 3
+Current Node being Expanded: 3 1
+FRONTIER NODES AND THEIR F VALUES
+Node: (2,1) F Value: 5.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%FCVVV%
+% %%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 4
+Current Node being Expanded: 2 1
+FRONTIER NODES AND THEIR F VALUES
+Node: (1,1) F Value: 4.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%CVVVV%
+%F%%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 5
+Current Node being Expanded: 1 1
+FRONTIER NODES AND THEIR F VALUES
+Node: (1,2) F Value: 3.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%VVVVV%
+%C%%%F%
+%F %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 6
+Current Node being Expanded: 1 2
+FRONTIER NODES AND THEIR F VALUES
+Node: (1,3) F Value: 2.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%VVVVV%
+%V%%%F%
+%CF%  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 7
+Current Node being Expanded: 1 3
+FRONTIER NODES AND THEIR F VALUES
+Node: (2,3) F Value: 3.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%VVVVV%
+%V%%%F%
+%VC%  %
+%%F  %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 8
+Current Node being Expanded: 2 3
+FRONTIER NODES AND THEIR F VALUES
+Node: (2,4) F Value: 2.0
+Node: (5,2) F Value: 7.0
+=================================
+%%%%%%%
+%VVVVV%
+%V%%%F%
+%VV%  %
+%%CF %%
+%.F%%%%
+%%%%%%%
+ITERATION NUMBER 9
+Current Node being Expanded: 2 4
+FRONTIER NODES AND THEIR F VALUES
+Node: (2,5) F Value: 1.0
+Node: (5,2) F Value: 7.0
+Node: (3,4) F Value: 3.0
+=================================
+%%%%%%%
+%VVVVV%
+%V%%%F%
+%VV%  %
+%%VF %%
+%FC%%%%
+%%%%%%%
+ITERATION NUMBER 10
+Current Node being Expanded: 2 5
+FRONTIER NODES AND THEIR F VALUES
+Node: (1,5) F Value: 0.0
+Node: (5,2) F Value: 7.0
+Node: (3,4) F Value: 3.0
+-------Greedy BFS Manhattan tinyMaze-------
+%%%%%%%
+%.....%
+%.%%%F%
+%..%  %
+%%.F %%
+%..%%%%
+%%%%%%%
+Path: (5,1)(4,1)(3,1)(2,1)(1,1)(1,2)(1,3)(2,3)(2,4)(2,5)(1,5)
+Path Cost:10
+#Nodes Expanded:10
+Maximum Depth Reached:10
+Maximum Size Frontier:3
+BUILD SUCCESSFUL (total time: 0 seconds)

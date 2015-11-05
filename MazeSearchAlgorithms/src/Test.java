@@ -22,22 +22,22 @@ import part3.*;
  */
 public class Test {
     public static void main(String[] args) throws IOException{
-        /*
-//        printByMazePart1("tinyMaze.lay.txt");
-        printByMazePart2("tinyMaze.lay.txt");
+        
+        printByMazePart1("tinyMaze.lay.txt");
+//        printByMazePart2("tinyMaze.lay.txt");
         System.out.println("----------------------------------------");
-//        printByMazePart1("smallMaze.lay.txt");
-        printByMazePart2("smallMaze.lay.txt");
+        printByMazePart1("smallMaze.lay.txt");
+//       printByMazePart2("smallMaze.lay.txt");
         System.out.println("----------------------------------------");
-//        printByMazePart1("mediumMaze.lay.txt");
-        printByMazePart2("mediumMaze.lay.txt");
+        printByMazePart1("mediumMaze.lay.txt");
+//        printByMazePart2("mediumMaze.lay.txt");
         System.out.println("----------------------------------------");
-//        printByMazePart1("bigMaze.lay.txt");
-        printByMazePart2("bigMaze.lay.txt");
+        printByMazePart1("bigMaze.lay.txt");
+//        printByMazePart2("bigMaze.lay.txt");
         System.out.println("----------------------------------------");
-//        printByMazePart1("openMaze.lay.txt");
-        printByMazePart2("openMaze.lay.txt");
-                */
+        printByMazePart1("openMaze.lay.txt");
+        //printByMazePart2("openMaze.lay.txt");
+                
         
         printByMazePart3("tinySearch.lay.txt");
         System.out.println("----------------------------------------");

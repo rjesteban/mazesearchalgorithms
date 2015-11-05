@@ -1,0 +1,201 @@
+run:
+=================================
+%%%%%%%
+%   FC%
+% %%%F%
+%  %  %
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 1
+Current Node being Expanded: 5 1
+FRONTIER NODES
+Node: (5,2) F Value: 0.03125
+Node: (4,1) F Value: 0.0625
+=================================
+%%%%%%%
+%   FV%
+% %%%C%
+%  % F%
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 2
+Current Node being Expanded: 5 2
+FRONTIER NODES
+Node: (4,1) F Value: 0.0625
+Node: (5,3) F Value: 0.0625
+=================================
+%%%%%%%
+%  FCV%
+% %%%V%
+%  % F%
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 3
+Current Node being Expanded: 4 1
+FRONTIER NODES
+Node: (5,3) F Value: 0.0625
+Node: (3,1) F Value: 0.1875
+=================================
+%%%%%%%
+%  FVV%
+% %%%V%
+%  %FC%
+%%   %%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 4
+Current Node being Expanded: 5 3
+FRONTIER NODES
+Node: (4,3) F Value: 0.125
+Node: (3,1) F Value: 0.1875
+=================================
+%%%%%%%
+%  FVV%
+% %%%V%
+%  %CV%
+%%  F%%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 5
+Current Node being Expanded: 4 3
+FRONTIER NODES
+Node: (3,1) F Value: 0.1875
+Node: (4,4) F Value: 0.1875
+=================================
+%%%%%%%
+% FCVV%
+% %%%V%
+%  %VV%
+%%  F%%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 6
+Current Node being Expanded: 3 1
+FRONTIER NODES
+Node: (4,4) F Value: 0.1875
+Node: (2,1) F Value: 0.4375
+=================================
+%%%%%%%
+% FVVV%
+% %%%V%
+%  %VV%
+%% FC%%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 7
+Current Node being Expanded: 4 4
+FRONTIER NODES
+Node: (3,4) F Value: 0.3125
+Node: (2,1) F Value: 0.4375
+=================================
+%%%%%%%
+% FVVV%
+% %%%V%
+%  %VV%
+%%FCV%%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 8
+Current Node being Expanded: 3 4
+FRONTIER NODES
+Node: (2,1) F Value: 0.4375
+Node: (2,4) F Value: 0.5625
+=================================
+%%%%%%%
+%FCVVV%
+% %%%V%
+%  %VV%
+%%FVV%%
+%. %%%%
+%%%%%%%
+ITERATION NUMBER 9
+Current Node being Expanded: 2 1
+FRONTIER NODES
+Node: (2,4) F Value: 0.5625
+Node: (1,1) F Value: 0.9375
+=================================
+%%%%%%%
+%FVVVV%
+% %%%V%
+% F%VV%
+%%CVV%%
+%.F%%%%
+%%%%%%%
+ITERATION NUMBER 10
+Current Node being Expanded: 2 4
+FRONTIER NODES
+Node: (2,5) F Value: 0.8125
+Node: (1,1) F Value: 0.9375
+Node: (2,3) F Value: 0.8125
+=================================
+%%%%%%%
+%FVVVV%
+% %%%V%
+% F%VV%
+%%VVV%%
+%FC%%%%
+%%%%%%%
+ITERATION NUMBER 11
+Current Node being Expanded: 2 5
+FRONTIER NODES
+Node: (2,3) F Value: 0.8125
+Node: (1,1) F Value: 0.9375
+Node: (1,5) F Value: 1.3125
+=================================
+%%%%%%%
+%FVVVV%
+% %%%V%
+%FC%VV%
+%%VVV%%
+%FV%%%%
+%%%%%%%
+ITERATION NUMBER 12
+Current Node being Expanded: 2 3
+FRONTIER NODES
+Node: (1,1) F Value: 0.9375
+Node: (1,5) F Value: 1.3125
+Node: (1,3) F Value: 1.3125
+=================================
+%%%%%%%
+%CVVVV%
+%F%%%V%
+%FV%VV%
+%%VVV%%
+%FV%%%%
+%%%%%%%
+ITERATION NUMBER 13
+Current Node being Expanded: 1 1
+FRONTIER NODES
+Node: (1,3) F Value: 1.3125
+Node: (1,5) F Value: 1.3125
+Node: (1,2) F Value: 1.4375
+=================================
+%%%%%%%
+%VVVVV%
+%F%%%V%
+%CV%VV%
+%%VVV%%
+%FV%%%%
+%%%%%%%
+ITERATION NUMBER 14
+Current Node being Expanded: 1 3
+FRONTIER NODES
+Node: (1,5) F Value: 1.3125
+Node: (1,2) F Value: 1.4375
+-------Uniform cost search c1 tinyMaze-------
+%%%%%%%
+%VVVV.%
+%F%%%.%
+%VV%..%
+%%...%%
+%..%%%%
+%%%%%%%
+Path: (5,1)(5,2)(5,3)(4,3)(4,4)(3,4)(2,4)(2,5)(1,5)
+Path Cost:8
+#Nodes Expanded:14
+Maximum Depth Reached:9
+Maximum Size Frontier:3
+BUILD SUCCESSFUL (total time: 0 seconds)
